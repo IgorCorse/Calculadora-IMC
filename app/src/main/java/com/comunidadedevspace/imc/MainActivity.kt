@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-
         val edtpeso = findViewById<TextInputEditText>(R.id.edit_peso)
         val edtaltura = findViewById<TextInputEditText>(R.id.edit_altura)
         val btnCalcular = findViewById<Button>(R.id.btn_calcular)
@@ -24,12 +22,10 @@ class MainActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
 
 
-
-
             val pesoStr: String = edtpeso.text.toString()
-            val alturaStr: String = edtaltura.text. toString()
+            val alturaStr: String = edtaltura.text.toString()
 
-            if(pesoStr =="" || alturaStr ==""){
+            if (pesoStr == "" || alturaStr == "") {
 
                 Snackbar.make(
                     edtpeso,
@@ -39,27 +35,20 @@ class MainActivity : AppCompatActivity() {
                     .show()
 
 
-            } else{
-            val peso = pesoStr.toFloat()
-            val altura = alturaStr.toFloat()
+            } else {
+                val peso = pesoStr.toFloat()
+                val altura = alturaStr.toFloat()
 
-            val alturaQ2 = altura * altura
-            val resultado = peso / alturaQ2
+                val alturaQ2 = altura * altura
+                val resultado = peso / alturaQ2
 
-            println("Igor açao do botao" + resultado)
 
                 val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra(KEY_RESULT_IMC,resultado)
+                intent.putExtra(KEY_RESULT_IMC, resultado)
                 startActivity(intent)
 
 
-
-
-
-
-
-
-        }
+            }
 
         }
 
